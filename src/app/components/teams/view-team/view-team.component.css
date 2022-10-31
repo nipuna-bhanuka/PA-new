@@ -1,0 +1,119 @@
+
+/*.profile-area{
+  padding: 80px 0;
+}
+.card{
+  box-shadow: 0 0 15px rgb(0,0,0,0.5);
+  overflow: hidden;
+  border-radius: 15px;
+}
+img2 img{
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 7px solid #fff;
+  margin-top: 80px;
+}
+.card:hover .img2 img{
+  border-color: darkcyan;
+  transition: .7s;
+}
+main-text p{
+  font-size: 16px;
+  padding: 0 35px;
+}
+.socials{
+  text-align: center;
+  padding-bottom: 20px;
+}
+.socials i {
+  font-size: 20px;
+  color: darkcyan;
+  padding: 0 10px;
+}
+*/
+/*.column {
+  float: left;
+  width: 30%;
+  margin-bottom: 16px;
+  margin-left: 10px;
+  padding: 0 8px;
+}
+
+// Display the columns below each other instead of side by side on small screens
+@media screen and (max-width: 200px) {
+  .column {
+    width: 90%;
+    display: block;
+  }
+}
+
+// Add some shadows to create a card effect
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+// Some left and right padding inside the container
+.container {
+  padding: 0 10px;
+}
+
+// Clear floats
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+*/
+
+body{
+  background:#eee;
+  margin-top:20px;
+}
+.img-thumbnail {
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+

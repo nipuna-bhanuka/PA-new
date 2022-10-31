@@ -1,0 +1,69 @@
+<div class="main-content">
+  <div class="container mt-7">
+    <h2 class="mb-5">Update Department</h2>
+    <div class="row">
+      <div class="col-xl-8 m-auto order-xl-1">
+        <div class="card bg-secondary shadow">
+          <div class="card-body">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-regNo">Department ID</label>
+                    <input type="text" id="input-id" name="id" #id="ngModel" [(ngModel)]="department.id" class="form-control form-control-alternative" [disabled]="true">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">Department name</label>
+                    <input type="text" id="input-username" name="dName" #name="ngModel" [(ngModel)]="department.name" class="form-control form-control-alternative" required minlength="2" pattern="^[A-Z][a-zA-Z. ]*$">
+                    <span class="text-danger"
+                    *ngIf="(name.touched || form.submitted) && name.errors?.['required']">
+                    Department name is required
+                    </span>
+                    <span class="text-danger"
+                    *ngIf="(name.touched || form.submitted) && name.errors?.['minlength']">
+                    At least one characters required
+                    </span>
+                    <span class="text-danger" *ngIf="name.touched && name.errors?.['pattern']">
+                    Can't enter numbers or symbols
+                    </span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">Department Head</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="departmentHeadId" #departmentHeadId="ngModel" [(ngModel)]="department.departmentHeadId" >
+                      <option value="0">-- select department head --</option>
+                      <option *ngFor="let employee of employees" [value]="employee.id">{{employee.firstName}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Description</label>
+                  <textarea class="form-control" id="message-text" name="dDescription" #description="ngModel" [(ngModel)]="department.description" required minlength="10" pattern="^[A-Z][a-zA-Z1-9 ]*$"></textarea>
+                  <span class="text-danger"
+                  *ngIf="(description.touched || form.submitted) && description.errors?.['required']">
+                  Department description is required
+                  </span>
+                <span class="text-danger"
+                  *ngIf="(description.touched || form.submitted) && description.errors?.['minlength']">
+                  At least ten characters required.
+                </span>
+                <span class="text-danger"
+                  *ngIf="description.touched && description.errors?.['pattern']">
+                  First letter should be capital.
+                </span>
+                </div>
+                <div class="row justify-content-end">
+                  <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" [disabled]="form.invalid">Update Department</button> </div>
+                  <div class="form-group col-sm-6"> <button  class="btn-block btn-primary" routerLink="../departments-list">Cancel</button> </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

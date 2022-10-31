@@ -1,0 +1,97 @@
+<br>
+<br>
+
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-8 order-xl-1">
+      <div position=relative class="card bg-transparent">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h2 class="mb-0">Criteria</h2>
+            </div>
+
+          </div>
+        </div>
+        <div class="card-body">
+          <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group focused">
+                    <label class="form-control-label" for="input-name" style="color:black;">Name</label>
+                    <input type="text" class="form-control form-control-alternative" id="name" name="name"
+                    required #name="ngModel" [(ngModel)]="criteria.name">
+                    <span class="text-danger"
+                    *ngIf="(name.touched||form.submitted)&& name.errors?.['required']">
+                    Criteria Name cannot be blank
+                  </span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-description" style="color:black;">Description</label>
+                    <input type="text" class="form-control form-control-alternative"  id="input-description" name="description"
+                    #description="ngModel" [(ngModel)]="criteria.description">
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- <div class="row" *ngFor="let Criteria of criterias">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-description" style="color:black;">{{criteria.name}}</label>
+                    <input type="text" class="form-control form-control-alternative"  id="input-description" name="Description"
+                    #name="ngModel" [(ngModel)]="criteria.name">
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-description" style="color:black;">Criteria</label>
+                    <input type="text" class="form-control form-control-alternative"  id="input-description" name="Criteria"
+                    #description="ngModel" [(ngModel)]="criteria.name" placeholder="criteria">
+                  </div>
+                </div>
+              </div> -->
+
+
+
+              <!-- <div class="row">
+
+              <div class="col-1 text-right">
+                <button class="btn btn-primary" type="submit">Save Changes</button>
+
+              </div>
+
+
+              <div class="col-1 text-right">
+
+                <button class="btn btn-danger"  (click)="delete(criteria.id)" style="float: right ;">Delete</button>
+              </div>
+            </div> -->
+            <div class="container">
+              <button type="button" class="btn btn-primary" type="submit" style="border-radius:5px;" [disabled]="form.invalid">
+                Save
+              </button>
+              <button type="button" class="btn btn-danger" (click)="delete(criteria.id)"  style="border-radius:5px; float: right;">
+                Delete
+              </button>
+            </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

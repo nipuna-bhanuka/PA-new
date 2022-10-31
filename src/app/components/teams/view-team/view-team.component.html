@@ -1,0 +1,24 @@
+<div class="container py-5">
+  <div class="row mb-4">
+    <div class="col-lg-5">
+      <h2 class="display-4 font-weight-light">Team : {{team.name}}</h2>
+      <p class="font-italic text-muted">{{team.description}}</p>
+    </div>
+  </div>
+  <hr>
+  <div class="row text-center">
+    <!-- Team item-->
+    <div *ngFor="let teamMember of employees" class="col-xl-3 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4"><img src="../../../../assets/images/person.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Name : {{teamMember.firstName}} {{teamMember.lastName}}</h5>
+        <span class="small text-uppercase text-muted">Designation : {{teamMember.designationName}}</span>
+        <ul class="social mb-0 list-inline mt-3">
+          <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+          <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+          <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+          <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

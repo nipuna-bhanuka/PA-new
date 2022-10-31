@@ -1,0 +1,47 @@
+<body>
+  <div>
+    <div class="col-12" *ngIf='sidenav'>
+      <div class="main-content">
+        <nav class="navbar navbar-tp navbar-expand-md navbar-dark bg-primary">
+          <app-navbar (hideside)="hidenav($event)"></app-navbar>
+        </nav>
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+        <footer class="footer">
+          <app-footer></app-footer>
+        </footer>
+      </div>
+    </div>
+    <div class="col-12" *ngIf='!sidenav'>
+      <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white">
+        <div class="container-fluid">
+          <app-sidebar fromWhere={{userRole}}></app-sidebar>
+        </div>
+      </nav>
+      <div class="main-content">
+        <nav class="navbar navbar-tp navbar-expand-md navbar-dark bg-primary">
+          <app-navbar (hideside)="hidenav($event)"></app-navbar>
+        </nav>
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+        <footer class="footer">
+          <app-footer></app-footer>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="row vh-80">
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white">
+      <div class="container-fluid">
+        <app-sidebar></app-sidebar>
+      </div>
+    </nav>
+  </div> -->
+
+</body>

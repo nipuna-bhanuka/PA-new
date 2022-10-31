@@ -1,0 +1,39 @@
+<br><br><br>
+<div class="container">
+  <button type="button" class="btn btn-primary" style="border-radius:5px;" routerLink="../create-team">
+    Create new Team
+  </button>
+</div>
+<br>
+<div class="col">
+  <div class="card shadow">
+    <div class="card-header border-0">
+      <h3 class="mb-0">Team List</h3>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Team Name</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Team Leader</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teamList" >
+            <td scope="row">{{team.name}}</td>
+            <td>{{team.departmentName}}</td>
+            <td>{{team.teamLeaderFirstName}}</td>
+            <td class="text-right">
+              <button (click)="edit(team.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" routerLink="../edit-team">Edit</button>
+              <button (click)="delete(team.id)" type="button" class="btn btn-danger mx-3" routerLink="../team-list">Delete</button>
+              <button (click)="view(team.id)" type="button" class="btn btn-success mx-3" routerLink="../view-team">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

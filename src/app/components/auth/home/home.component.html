@@ -1,0 +1,46 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+<body>
+  <div class="main-content">
+    <div class="container mt-7">
+      <!-- Table -->
+      <div class="row">
+        <div class="col-xl-8 m-auto order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                      class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+            </div>
+            <div class="card-body pt-0 pt-md-4">
+              <div class="text-center">
+                <h3>
+                  <strong>{{userDetails.userName}}</strong>
+                </h3>
+                <div>
+                  <i class="ni education_hat mr-2"></i>{{userDetails.fullName}}
+                </div>
+                <hr class="my-4">
+                <button class="btn btn-primary my-4" (click)="onLogout()">Log out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6 m-auto text-center">
+
+      </div>
+    </div>
+  </footer>
+</body>

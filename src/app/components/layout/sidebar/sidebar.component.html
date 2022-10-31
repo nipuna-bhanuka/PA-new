@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <a class="navbar-brand pt-0 text-primary">JRC</a>
+  <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+    <div class="navbar-collapse-header d-sm-none">
+      <div class="row">
+        <div class="col-6 collapse-brand">
+          <a href="javascript:void(0)"> JRC</a>
+        </div>
+      </div>
+    </div>
+    <ul class="navbar-nav">
+      <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+        <a class="nav-link" [routerLink]="[menuItem.path]">
+            <i class="material-icons">{{menuItem.icon}}</i>
+            <p>{{menuItem.title}}</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+

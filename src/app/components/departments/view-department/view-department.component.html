@@ -1,0 +1,134 @@
+<br />
+<div class="container">
+  <div>
+    <!-- <h2>Department {{department.name}}</h2> -->
+  </div>
+  <div class="row mb-4">
+    <div class="col-lg-5">
+      <h1 class="display-4 font-weight-light">Department : {{department.name}}</h1>
+      <p class="font-italic text-muted">
+        {{department.description}}
+      </p>
+    </div>
+  </div>
+  <hr>
+  <div class="container-fluid mt--7" *ngIf="show">
+    <div class="row">
+      <div class="col-xl-8 order-xl-1">
+        <div position=relative class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">Enter Employee Details</h3>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <form #form="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-firstname">First Name</label>
+                      <input type="text" id="input-firstname" name="firstName"  #firstName="ngModel" [(ngModel)]="employee.firstName"  class="form-control form-control-alternative" [disabled]="true">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-lastname">Last Name</label>
+                      <input type="text" id="lastname" name="lastName"  #lastName="ngModel" [(ngModel)]="employee.lastName" class="form-control form-control-alternative" [disabled]="true">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Email</label>
+                      <input type="email" id="input-email" name="email"  #email="ngModel" [(ngModel)]="employee.email" class="form-control form-control-alternative" [disabled]="true">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-designation">Department Name</label>
+                      <input type="text" id="id" name="departmentId"  #departmentId="ngModel" [(ngModel)]="employee.departmentName" class="form-control form-control-alternative" [disabled]="true">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-designation" placeholder="--- Select designation ---">Team Name</label>
+                      <select class="form-control" id="exampleFormControlSelect1" name="teamId" #teamId="ngModel" [(ngModel)]="employee.teamId" >
+                        <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn btn-sm btn-primary">Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="col">
+    <div class="card shadow">
+      <div class="card-header border-0">
+        <h3 class="mb-0">Team List</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Team Name</th>
+              <th scope="col">Team Leader</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let team of teams">
+              <td>{{team.name}}</td>
+              <td>{{team.teamLeaderFirstName}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="col">
+    <div class="card shadow">
+      <div class="card-header border-0">
+        <h3 class="mb-0">Employee List</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Designation</th>
+              <!-- <th scope="col">Team Id</th> -->
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employees">
+              <td>{{ employee.firstName }}</td>
+              <td>{{ employee.lastName }}</td>
+              <td>{{ employee.designationName }}</td>
+              <!-- <td>{{ employee.teamId }}</td> -->
+              <!-- <td>{{ employee.teamName }}</td> -->
+              <td td class="text-center">
+                <button (click)="editTeam(employee.id)" type="button" class="btn btn-primary mx-3">Set Team</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

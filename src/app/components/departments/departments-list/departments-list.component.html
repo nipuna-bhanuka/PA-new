@@ -1,0 +1,38 @@
+<br><br><br>
+<div class="container">
+  <button type="button" class="btn btn-primary" style="border-radius:5px;" routerLink="../create-department">
+    Create new Department
+  </button>
+</div>
+<br>
+<div class="col">
+  <div class="card shadow">
+    <div class="card-header border-0">
+      <h3 class="mb-0">Department List</h3>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Department Name</th>
+            <th scope="col">Department Head</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let department of departmentList">
+              <td scope="row">{{department.name}}</td>
+              <td>{{department.departmentHeadFirstName}}</td>
+              <td td class="text-center">
+                <button (click)="edit(department.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" routerLink="../edit-department">Edit</button>
+                <button (click)="delete(department.id)" type="button" class="btn btn-danger mx-3" routerLink="../departments-list">Delete</button>
+                <button (click)="view(department.id)" type="button" class="btn btn-success mx-3" routerLink="../view-department">View</button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+

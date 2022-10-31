@@ -1,0 +1,65 @@
+
+<br><br>
+
+
+
+<br>
+
+
+
+<br>
+
+<div class="col">
+  <div class="card shadow">
+
+    
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col-2">Performance Appraisal Criteria</th>
+
+          <th scope="col-4">Rating</th>
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let pa of criteriaGroups" style="border-width: 0;">
+
+        <tr class="table-primary" style="font-weight: bold;">
+          <td scope="col-2">{{pa.name}}</td>
+          <td scope="col-3">{{pa.weightages}}%</td>
+
+
+        </tr>
+        <tr *ngFor="let pa1 of criterias">
+            <td *ngIf="pa.id ==pa1.groupId">{{pa1.name}}</td>
+
+            <td *ngIf="pa.id ==pa1.groupId">
+              <select class="form-control form-control-sm">
+                <option selected>Score</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </td>
+
+
+        </tr>
+
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<br>
+<br><br>
+
+<div class="container">
+
+  <button type="button" class="btn btn-success btn-lg" style="border-radius:5px; float: right; padding: 16px 24px;">
+    Submit
+  </button>
+</div>

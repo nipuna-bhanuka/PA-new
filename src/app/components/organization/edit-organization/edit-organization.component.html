@@ -1,0 +1,78 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+<body>
+  <div class="main-content">
+    <div class="container mt-7">
+      <!-- Table -->
+      <h2 class="mb-5"></h2>
+      <div class="row">
+        <div class="col-xl-8 m-auto order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-primary border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Update your Organization</h3>
+                </div>
+                <div class="col-4 text-right">
+
+                </div>
+              </div>
+            </div>
+            <div class="card-body bg-gray">
+              <form (ngSubmit)="onSubmit()" [formGroup]="createForm" autocomplete="off"  >
+                <div class="pl-lg-4">
+                  <div class="row col-10">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-regNo">Name</label>
+                      <input type="text" id="name" name="name" [(ngModel)]="organization.name"
+                        class="form-control form-control-alternative" formControlName="name">
+                      <div *ngIf="createForm.get('name')?.touched && createForm.get('useremail')hasError('pattern')">
+                        cannot input numbers</div>
+                    </div>
+                  </div>
+                  <div class="row col-10">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-regNo">registationNumber</label>
+                      <input type="text" id="registationNumber" name="registationNumber"
+                        formControlName="registationNumber" [(ngModel)]="organization.registationNumber"
+                        class="form-control form-control-alternative">
+                    </div>
+                  </div>
+                  <div class="row col-10">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-username">Address</label>
+                      <input type="text" id="address" name="address" formControlName="address"
+                        [(ngModel)]="organization.address" class="form-control form-control-alternative"
+                        autocomplete="off">
+                    </div>
+                  </div>
+                  <div class="row col-10">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-username">webLink</label>
+                      <input type="text" id="webLink" name="webLink" formControlName="weblink"
+                        [(ngModel)]="organization.webLink" class="form-control form-control-alternative">
+                      <div *ngIf="createForm.get('weblink')?.touched && createForm.get('weblink')hasError('pattern')">
+                        Enter valid web link</div>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group">
+                    <label for="message-text" class="col-form-label">Description</label>
+                    <input type="text" class="form-control" id="message-text" name="dDescription"  formControlName="weblink"
+                      [(ngModel)]="organization.name">
+                  </div> -->
+                  <div class="row justify-content-end">
+                    <div class="form-group col-sm-6">
+                      <button type="submit" class="btn btn-dark" [disabled]="createForm.invalid">Update
+                        Organization</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>

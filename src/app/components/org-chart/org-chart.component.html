@@ -1,0 +1,12 @@
+<angular-org-chart [nodeTemplate]="nodeTemplate" [data]="tree" #exampleChart="orgChart">
+
+</angular-org-chart>
+
+<!-- Node Template -->
+<ng-template #nodeTemplate let-node>
+  <div class="chart-node">
+      <!-- <img [src]="node?.image"> -->
+      <div class="name">{{node?.name}}</div>
+      <div *ngIf="node.children.length" (click)="node.hideChildren = !node.hideChildren" class="tree-fold-btn">{{node.hideChildren ? '+' : '-'}}</div>
+  </div>
+</ng-template>

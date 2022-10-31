@@ -1,0 +1,48 @@
+<br><br><br>
+<div class="container">
+  <button type="button" class="btn btn-primary" style="border-radius:5px;" routerLink="../create-pa">
+    Create new PA
+  </button>
+  <!-- <button type="button" class="btn btn-success" style="border-radius:5px; float: right;" routerLink="../pa-list">
+    Reviewer pa sheet
+  </button> -->
+</div>
+<br>
+<div class="col">
+  <div class="card shadow">
+    <div class="card-header border-0">
+      <h3 class="mb-0">PA Sheet List</h3>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Department Name</th>
+            <th scope="col">Department Head</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let pa of paList">
+            <th scope="row">{{pa.department}}</th>
+            <td>{{pa.dep_Head_Name}}</td>
+            <td>{{pa.start_date}}</td>
+            <td>{{pa.due_date}}</td>
+            <td td class="text-right">
+              <button (click)="edit(pa.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" routerLink="../edit-pa">Edit</button>
+              <button (click)="delete(pa.id)" type="button" class="btn btn-danger mx-3">Delete</button>
+              <button type="button" class="btn btn-dark mx-3" routerLink="../view-pa">View</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+

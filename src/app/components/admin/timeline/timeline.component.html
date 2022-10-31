@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-10">
+            <ul class="cbp_tmtimeline">
+                <!-- <li>
+                    <time class="cbp_tmtime" datetime="2017-11-04T18:30"><span class="hidden">25/12/2017</span> <span class="large">Now</span></time>
+                    <div class="cbp_tmicon"><i class="zmdi zmdi-account"></i></div>
+                    <div class="cbp_tmlabel empty"> <span>No Activity</span> </div>
+                </li> -->
+                <li *ngFor="let act of timelineAct">
+                    <time class="cbp_tmtime">{{act.dateTime}}</time>
+                    <div class="cbp_tmicon bg-info"><i class="zmdi zmdi-label"></i></div>
+                    <div class="cbp_tmlabel">
+                        {{act.msg}}
+                    </div>
+                </li>
+            </ul>  
+        </div>
+    </div>
+</div>

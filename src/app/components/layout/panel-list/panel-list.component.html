@@ -1,0 +1,188 @@
+<body>
+  <div class="main-content">
+    <div class="container mt-7">
+      <!-- Table -->
+      <h1 class="mb-5">Panels</h1>
+      <button class="btn btn-primary" (click)="showForm()" (click)="createPanel()">Create Panel</button>
+      <div *ngIf="true">
+        <!-- <div class="row">
+          <div class="col-xl-8 m-auto order-xl-1">
+            <div class="card bg-secondary shadow">
+              <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-8">
+                    <h3 class="mb-0">Edit Panel</h3>
+                  </div>
+                  <div class="col-4 text-right">
+                    <button class="btn btn-sm btn-primary" (click)="onSubmit()">Submit</button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <form #form="ngForm" (ngSubmit)="onSubmit()">
+                  <h6 class="heading-small text-muted mb-4">User information</h6>
+                  <div class="pl-lg-4">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group focused">
+                          <label class="form-control-label" for="input-username">Panel Number</label>
+                          <input type="text" id="input-username" class="form-control form-control-alternative"
+                            placeholder="Panel Number Error" value="{{ panelNumber }}" [disabled]="true">
+                        </div>
+                      </div>
+                    </div>
+                    <div [(ngModel)]="reviwee.panelId">{{ panel.id }}</div>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group focused">
+                          <label class="form-control-label" for="input-first-name">Reviwee Id</label>                          
+                          <select class="form-control" id="exampleFormControlSelect1" name="employeeRegistationNumber"
+                            #employeeRegistationNumber="ngModel" [(ngModel)]="panel.reviwee"
+                            reviwee.panelId="panelNumber" (onclick)="onSubmit()">
+                            <option value="0">-- select reviwee --</option>
+                            <option *ngFor="let reviwee of reviwees" [value]="reviwee.employeeRegistationNumber">
+                              {{reviwee.employeeRegistationNumber}}
+                            </option>
+
+                          </select>
+                        </div>
+                      </div>
+                      <table>
+                        <tr>
+                          <td>{{nreviwee}}</td>
+                        </tr>
+                      </table>
+
+
+                    </div>
+                  </div>
+                  <hr class="my-4">
+
+                  <h6 class="heading-small text-muted mb-4">Add Reviwers</h6>
+                  <hr class="my-4">
+
+                  <div class="container" style="margin-top: 5%">
+
+                  </div>
+                </form>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>Reviwer Id</th>
+
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let dynamic of dynamicArray; let i = index;">
+                    <tr>
+                      <td (click)="deleteRow(i)">
+                        <i class="fa fa-trash fa-2x"></i>
+                      </td>
+                      <select class="form-control" id="exampleFormControlSelect1" name="panelId"
+                        [(ngModel)]="reviwee.panelId" [value]=reviwee.panelId required>
+                        <option value="0">-- select reviwee --</option>
+                        <option>
+
+                        </option>
+                      </select>
+                      <td>
+                        <input [(ngModel)]="dynamicArray[i].title2" class="form-control" type="text" />
+                      </td>
+                      <td>
+                        <input [(ngModel)]="dynamicArray[i].title3" class="form-control" type="text" />
+                      </td>
+                      <td (click)="addRow(i)">
+                        <i class="fa fa-plus fa-2x"></i>
+                      </td>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- <footer class="footer">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon
+              Dashboard</a> by Creative Tim</p>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+
+  <div class="main-content">
+    <div class="container mt-9">
+      <h2 class="mb-5 pt-4">Panel List</h2>
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <h3 class="mb-0">Panel list table
+                <i *ngIf="isLoading" class="fa fa-refresh fa-spin fa-fw" aria-hidden="true"></i>
+                <i *ngIf="!isLoading" class="fa fa-refresh" aria-hidden="true"></i>
+              </h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col" class="text-center">Panel Number</th>
+                    <!-- <th scope="col">Reviwee Name</th>
+                    <th scope="col">Edit Panel</th> -->
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let panel of panelList">
+                    <td class="text-center">
+                      {{ panel.panelNumber }}
+                    </td>                    
+                    <td class="text-center">
+                      <button class="btn btn-primary mx-3"  (click)="onView(panel.id)" routerLink="../panel-view">View</button>
+                      <button class="btn btn-primary mx-3" (click)="onEdit(panel.id)" routerLink="../panel-edit" >Edit</button>   
+                      <button class="btn btn-danger mx-3" (click)="removePanel(panel.id)">Remove</button>
+                    </td>  
+                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- <div class="card-footer py-4">
+              <nav aria-label="...">
+                <ul class="pagination justify-content-end mb-0">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">
+                      <i class="fas fa-angle-left"></i>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">
+                      <i class="fas fa-angle-right"></i>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

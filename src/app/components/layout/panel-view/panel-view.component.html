@@ -1,0 +1,42 @@
+<h1 class="text-center p-4 text-primary">Panel Details</h1>
+<div class="container justify-content-center">
+    <div class="container col-6 text-secondary">
+        <div class="row ">
+            <div class="col-3 text-left ">Panel Number</div>:
+            <div class="col text-left" >
+                <div>{{ panelNumber }} </div>               
+            </div> 
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3 text-left">Reviwees</div>:
+            <div class="col text-right" >
+                <ul *ngFor="let reviwee of reviweeList">
+                    <li>
+                        Name:
+                    {{ reviwee.employeeFirstName }}
+                    </li>
+                    
+                        RegistrationNumber:
+                        {{ reviwee.employeeRegistationNumber }}
+                                  
+                </ul>                
+            </div> 
+        </div>
+        <br>
+        <div class="row" >
+            <div class="col-3 text-left">Reviwers</div>:
+            <div class="col text-right" >
+                <ul *ngFor="let reviwer of reviwerList">
+                    <li>
+                        Name:
+                    {{ reviwer.firstName }}
+                    </li>                   
+                    
+                    RegistrationNumber:
+                    {{ reviwer.registrationNumber }}                    
+                </ul>                
+            </div>            
+        </div>
+    </div>
+</div>

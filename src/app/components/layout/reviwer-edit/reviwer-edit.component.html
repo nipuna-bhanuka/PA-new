@@ -1,0 +1,74 @@
+<div class="container-fluid mt-7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col-xl-7 m-auto order-xl-1">
+        <div class="card bg-grey shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">My account</h3>
+              </div>
+              <div class="col-4 text-right">
+                
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="onSubmit()" [formGroup]="createForm">
+              <h6 class="heading-small text-muted mb-4">User information</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-username">Employee Name</label>
+                      <input type="text" id="input-username" class="form-control form-control-alternative"
+                         [(ngModel)]="reviwer.employeeFirstName" name="employeeFirstName"
+                         disabled="true">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-username">Registration Number</label>
+                      <input type="int" id="input-username" class="form-control form-control-alternative"
+                      [(ngModel)]="reviwer.employeeRegistationNumber" name="employeeRegistationNumber"
+                      disabled="true">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-first-name">Panel</label>
+                      <select class="form-control" id="exampleFormControlSelect1" name="panelId"                         
+                      [(ngModel)]="reviwer.panelId" [value]= reviwer.panelId required formControlName="pselect">
+                        <option value="0">-- select reviwer --</option>
+                        <option *ngFor="let panel of panels" [value]="panel.id">
+                          {{panel.panelNumber}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-last-name">Department Name</label>
+                      <input type="text" id="input-last-name" class="form-control form-control-alternative"
+                        placeholder="Last name" value="Jesse">
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="row justify-content-start p-2">
+                    <div class="form-group col-sm-6">
+                      <button type="submit" class="btn btn-dark" [disabled]="createForm.invalid">Update
+                        reviwer</button>
+                    </div>
+                  </div>
+              </div>
+              <hr class="my-4">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

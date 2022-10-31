@@ -1,0 +1,80 @@
+<br><br>
+
+<br>
+
+<div class="container">
+  <button type="button" class="btn btn-primary" style="border-radius:5px;" routerLink="../create-criteria">
+    Create new Criteria Group
+  </button>
+
+  <button type="button" class="btn btn-primary" style="border-radius:5px; float: right;" routerLink="../create-subcriteria">
+    Create new Criteria
+  </button>
+</div>
+
+<br><br>
+
+
+
+<br>
+
+<div class="col">
+  <div class="card shadow">
+
+
+
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col-2">Performance Appraisal Criteria</th>
+          <th scope="col-3">Employee Self Rating</th>
+          <th scope="col-3">Peer Rating</th>
+          <th scope="col-4">Team Lead Rating</th>
+          <th scope="col-4">Action</th>
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let criteriaGroup of criteriaGroups" style="border-width: 0;">
+
+        <tr class="table-danger" style="font-weight: bold;">
+          <td scope="col-2" >
+          {{criteriaGroup.name}}
+           </td>
+          <td scope="col-3">{{criteriaGroup.weightages}}%</td>
+          <td scope="col-3">{{criteriaGroup.weightages}}%</td>
+          <td scope="col-4">{{criteriaGroup.weightages}}%</td>
+          <td scope="col-4">
+            <button (click)="edit(criteriaGroup.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-sm btn-primary" routerLink="../edit-criteria">Edit</button>
+
+            <button (click)="delete(criteriaGroup.id)" type="button" class="btn btn-sm btn-danger">Delete</button>
+
+
+        </td>
+
+        </tr>
+        <tr *ngFor="let criteria of  criterias" (click)="editcriteria(criteria.id)" routerLink="../edit-subcriteria">
+            <td *ngIf="criteriaGroup.id ==criteria.groupId">{{criteria.name}}</td>
+            <td *ngIf="criteriaGroup.id ==criteria.groupId"></td>
+            <td *ngIf="criteriaGroup.id ==criteria.groupId"></td>
+            <td *ngIf="criteriaGroup.id ==criteria.groupId"></td>
+            <td *ngIf="criteriaGroup.id ==criteria.groupId">
+          </td>
+
+        </tr>
+
+        <tr class="table-tr-crit" style="font-weight: bold;  border-top: solid black; border-bottom: solid black; text-align: center;color: red;">
+          <td>PA Score for this section</td>
+          <td style="text-align:left ;"></td>
+          <td style="text-align:left ;"></td>
+          <td style="text-align:left ;"></td>
+          <td></td>
+      </tr>
+
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+
